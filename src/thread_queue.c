@@ -77,3 +77,7 @@ pthread_t* Queue_pop(Thread_Queue* q){
 
     return result->thread;
 }
+
+int Queue_empty(Thread_Queue* q){
+    return q->front == NULL;
+}

@@ -28,4 +28,6 @@ pthread_t* Queue_front(Thread_Queue* q);
 
 pthread_t* Queue_pop(Thread_Queue* q);
 
+int Queue_empty(Thread_Queue* q);
+
 #endif // THREAD_QUEUE_H_
