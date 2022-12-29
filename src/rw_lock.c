@@ -28,7 +28,7 @@ void RW_Lock_wait(RW_Lock* rw_lock, int mode){
 
 void RW_Lock_signal(RW_Lock* rw_lock, int mode){
     if(mode == 1){ // Writer Mode
-        Semaphore_signal(rw_lock->turnstile)
+        Semaphore_signal(rw_lock->turnstile);
         Semaphore_signal(rw_lock->room_empty);
     } else if(mode == 0){ // Reader Mode
         Lightswitch_unlock(rw_lock->read_switch, rw_lock->room_empty);
