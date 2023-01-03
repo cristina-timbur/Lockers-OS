@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 void Queue_init(Thread_Queue* q){
-    q = malloc(sizeof(Thread_Queue));
+    q = (Thread_Queue*) malloc(sizeof(Thread_Queue));
     q->front = NULL;
     q->back = NULL;
     q->count = 0;

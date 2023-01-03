@@ -9,14 +9,14 @@ typedef struct RW_Lock_Writer_Priority{
     Lightswitch* write_switch;
     Semaphore *no_readers;
     Semaphore *no_writers;
-} RW_Lock;
+} RW_Lock_Writer_Priority;
 
-void RW_Lock_Writer_Priority_init(RW_Lock_Writer_Priority* rw_lock);
+int RW_Lock_Writer_Priority_init(RW_Lock_Writer_Priority* rw_lock);
 
-void RW_Lock_Writer_Priority_wait(RW_Lock_Writer_Priority* rw_lock, int mode);
+int RW_Lock_Writer_Priority_wait(RW_Lock_Writer_Priority* rw_lock, int mode);
 
-void RW_Lock_Writer_Priority_signal(RW_Lock_Writer_Priority* rw_lock, int mode);
+int RW_Lock_Writer_Priority_signal(RW_Lock_Writer_Priority* rw_lock, int mode);
 
-void RW_Lock_Writer_Priority_destroy(RW_Lock_Writer_Priority* rw_lock);
+int RW_Lock_Writer_Priority_destroy(RW_Lock_Writer_Priority* rw_lock);
 
 #endif // RW_LOCK_WRITER_PRIORITY_H

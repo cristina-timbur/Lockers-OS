@@ -9,12 +9,12 @@ typedef struct Lightswitch {
     Mutex *mutex;
 } Lightswitch;
 
-void Lightswitch_init(Lightswitch* lightswitch);
+int Lightswitch_init(Lightswitch* lightswitch);
 
-void Lightswitch_lock(Lightswitch* lightswitch, Semaphore *sem);
+int Lightswitch_lock(Lightswitch* lightswitch, Semaphore *sem);
 
-void Lightswitch_unlock(Lightswitch* lightswitch, Semaphore *sem);
+int Lightswitch_unlock(Lightswitch* lightswitch, Semaphore *sem);
 
-void Lightswitch_destroy(Lightswitch *lightswitch);
+int Lightswitch_destroy(Lightswitch *lightswitch);
 
 #endif // LIGHTSWITCH_H_

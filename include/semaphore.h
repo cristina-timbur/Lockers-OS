@@ -13,12 +13,12 @@ typedef struct Semaphore {
     sigset_t* signal_set;
 } Semaphore;
 
-void Semaphore_init(Semaphore* sem, int val);
+int Semaphore_init(Semaphore* sem, int val);
 
-void Semaphore_wait(Semaphore* sem);
+int Semaphore_wait(Semaphore* sem);
 
-void Semaphore_signal(Semaphore* sem);
+int Semaphore_signal(Semaphore* sem);
 
-void Semaphore_destroy(Semaphore* sem);
+int Semaphore_destroy(Semaphore* sem);
 
 #endif // SEMAPHORE_H_
