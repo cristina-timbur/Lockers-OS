@@ -1,0 +1,5 @@
+# ignore all files in this folder
+*
+
+# exception from the rule
+!.gitignore
