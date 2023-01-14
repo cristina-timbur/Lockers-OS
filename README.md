@@ -23,15 +23,14 @@ Lockers-OS is a C library with synchronization tools for threads. It implements 
 
 ## :gear: Usage (UNIX like systems)
 
-Add <i>lockers.h</i> file and <i>include</i> and <i>src</i> folders to the root of your project then run the following commands in a terminal opened  within that project:
+Add `lib` directory to the root of your project, then inside it run the following command to build the library:
 
 ```bash
-gcc -c src/*.c
-ar -rcs liblockers.a *.o
+make
 ```
+This will generate an archive file called `liblockers.a`
 
-- The first command compiles all library codes (src/\*.c) into object files (\*.o) without linking. <br/>
-- The second one creates a static libray named <i>liblockers.a</i> using the GNU archiver program (<i>ar</i>). It adds to the archive copies of the object files just created, where `r` flag specifies to insert or replace existing object files in the library,`c` flag tells to create the library if it doesn't already exist and `s`  flag specifies to index the archive in order to speed-up symbol-lookup inside the library.
+The libray header file is located under `lib/include/lockers.h`. Take this into consideration when using it. 
 
 In the end, compile your sorce code telling the compiler to use the symbols from <i>lockers</i> libray.
 
@@ -40,6 +39,8 @@ In the end, compile your sorce code telling the compiler to use the symbols from
 ```bash
 gcc <program_name.c> -L. -llockers -o <executable_name>
 ```
+
+<b>Note:</b> in order to compile the sources from `tests` folder it's enough to run the `make` command inside it. This will generate all the executables inside the `tests/bin` folder.
 
 <a name="examples"/>
 
@@ -56,8 +57,7 @@ Write a program that handles access to a finite number of resources. Multiple th
 #### Run Our Solution
 
 ```bash
-gcc tests/count.c -L. -llockers -o tests/count
-./tests/count 3 4 2 5 1 3 4 5 2 3 4 5 2 3
+./tests/bin/count 3 4 2 5 1 3 4 5 2 3 4 5 2 3
 ```
 
 #### Sample
@@ -75,8 +75,7 @@ Implement a Barrier. As a reminder, a barrier in a multithreaded program doesnt'
 #### Run Our Solution
 
 ``` bash
-gcc tests/barrier.c -L. -llockers -o tests/barrier
-./tests/barrier
+./tests/bin/barrier
 ```
 
 #### Sample
@@ -94,8 +93,7 @@ A data structure, database or file system can be read and modified by conccurren
 #### Run Our Solution
 
 ``` bash
-gcc tests/readers-writers.c -L. -llockers -o tests/readers-witers
-./tests/readers-writers r r r r r w w r w r w r r w w r r w 
+./tests/bin/readers-writers r r r r r w w r w r w r r w w r r w 
 ```
 
 #### Sample
@@ -113,8 +111,7 @@ Same problem as before, but this time writers have priority. In other words, onc
 #### Run Our Solution
 
 ``` bash
-gcc tests/readers-writers-priority.c -L. -llockers -o tests/readers-witers-priority
-./tests/readers-writers-priority r r w w w w w w w w r w w w 
+./tests/bin/readers-writers-priority r r w w w w w w w w r w w w 
 ```
 
 #### Sample
@@ -132,8 +129,7 @@ Some threads are producers and some threads are consumers. Producers create item
 #### Run Our Solution
 
 ``` bash
-gcc tests/producer-consumer.c -L. -llockers -o tests/producer-consumer
-./tests/producer-consumer p c c p p p c p p p p p p p c c c c c c c p p p p c c c c c
+./tests/bin/producer-consumer p c c p p p c p p p p p p p c c c c c c c p p p p c c c c c
 ```
 
 #### Sample
@@ -162,8 +158,7 @@ The forks represent resources that the threads have to hold exclusively in order
 #### Run Our Solution
 
 ``` bash
-gcc tests/dining-philosophers.c -L. -llockers -o tests/dining-philosophers
-./tests/dining-philosophers
+./tests/bin/dining-philosophers
 ```
 
 #### Sample 
