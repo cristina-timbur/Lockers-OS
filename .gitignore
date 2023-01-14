@@ -1,0 +1,6 @@
+# exclude everything in
+lib/obj/*
+tests/bin/*
+
+# ignore files in root
+*.a

@@ -3,7 +3,7 @@
 #include <errno.h>
 #include <semaphore.h>
 #include <stdlib.h>
-#include "../lockers.h"
+#include "../lib/include/lockers.h"
 
 #define NTHRS 5
 

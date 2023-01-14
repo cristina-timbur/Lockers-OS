@@ -3,7 +3,7 @@
 #include <errno.h>
 #include <semaphore.h>
 #include <stdlib.h>
-#include "../lockers.h"
+#include "../lib/include/lockers.h"
 
 RW_Lock_Writer_Priority rw_lock;
 int value = 0;

@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <pthread.h>
 #include <errno.h>
-#include "../lockers.h"
+#include "../lib/include/lockers.h"
 
 #define MAX_RESOURCES 5
 
